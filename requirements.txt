@@ -1,0 +1,6 @@
+pandas==1.2.5
+requests==2.25.1
+json==2.0.9
+smtplib
+email
+imaplib==2.58
