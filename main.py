@@ -123,7 +123,7 @@ def melt_ingredients_amounts(drink_ingredient_amount, value_list, value_name, re
 
 
 # what to report
-def message_to_send(what_you_need_with_instructions):
+def message_to_send(what_you_need_with_instructions, ingredient_input):
     possible_drinks = list(what_you_need_with_instructions['strDrink'].unique())
     possible_drinks_count = len(possible_drinks)
 
@@ -163,7 +163,7 @@ def send_email(ingredient_input, what_you_need_with_instructions, initial_sender
     message['from'] = from_addr
     message['to'] = to_addrs
     # convert the body to a MIME compatible string
-    body, file_instructions, file_grocery_list = message_to_send(what_you_need_with_instructions)
+    body, file_instructions, file_grocery_list = message_to_send(what_you_need_with_instructions, ingredient_input)
     message.attach(body)
     message.attach(file_instructions)
     message.attach(file_grocery_list)
