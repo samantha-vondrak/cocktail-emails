@@ -20,7 +20,6 @@ api_key = int(api_key)
 api_key = str(api_key)
 
 # adding a comment for show
-# adding another comment for change 3
 def login_for_email():
     # account credentials
     username = email_user
