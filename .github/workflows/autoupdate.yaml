@@ -20,29 +20,7 @@ jobs:
 
     runs-on: ubuntu-18.04
 
-    steps:
-    # https://kjaymiller.com/how-i-autoupdate-my-github-readme-using-github-actions-in-5-easy-steps
-        - name: Git checkout
-          uses: actions/checkout@v2
-          with:
-            fetch-depth: '0'
-        - name: git
-          run: |
-            git --version
-            git config user.name "GitHub Actions Bot"
-            git config user.email "<>"
-        - name: check for changes
-          run: git status
-        - name: stage changed files
-          run: git add .changerc
-        - name: commit changed files
-          run: git commit -m "Auto updating .changerc"
-        - name: fetch from master
-          run: git fetch origin master
-        - name: push code to master
-          run: git push origin HEAD:master
-        
-        
+    steps:        
         - uses: docker://chinthakagodawita/autoupdate-action:v1
         
           env:
