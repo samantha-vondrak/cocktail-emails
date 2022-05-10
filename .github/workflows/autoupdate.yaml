@@ -17,6 +17,6 @@ jobs:
         - name: pip install pygithub
           run: pip install pygithub
         - name: run ./.github/scripts/resolve_changerc_conflict.py
-          run: python resolve_changerc_conflict.py
+          run: python ./scripts/resolve_changerc_conflict.py
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
