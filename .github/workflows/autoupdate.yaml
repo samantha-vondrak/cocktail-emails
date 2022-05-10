@@ -25,7 +25,7 @@ jobs:
 
         - uses: actions/checkout@v1
         - name: switching from HTTPS to SSH
-          run: git remote set-url origin ${{ secrets.GITHUB_TOKEN }}
+          run: git remote set-url origin "https://${{ secrets.GITHUB_TOKEN }}@github.com/cocktail-emails.git"
         - name: check for changes
           run: git status
         - name: stage changed files
