@@ -24,8 +24,8 @@ jobs:
     # https://kjaymiller.com/how-i-autoupdate-my-github-readme-using-github-actions-in-5-easy-steps
 
         - uses: actions/checkout@v1
-          with:
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
+        - name: switching from HTTPS to SSH
+          run: git remote set-url origin ${{ secrets.ssh }}
         - name: check for changes
           run: git status
         - name: stage changed files
