@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     # https://kjaymiller.com/how-i-autoupdate-my-github-readme-using-github-actions-in-5-easy-steps
+        - uses: actions/checkout@v2
         - name: pip install pygithub
           run: pip install pygithub
         - name: run ./scripts/resolve_changerc_conflict.py
