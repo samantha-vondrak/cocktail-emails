@@ -22,12 +22,15 @@ jobs:
 
     steps:
     # https://kjaymiller.com/how-i-autoupdate-my-github-readme-using-github-actions-in-5-easy-steps
-
-        - uses: actions/checkout@v1
-        - name: switching from HTTPS to SSH
-          run: git remote set-url origin "https://${{ secrets.GITHUB_TOKEN }}@github.com/cocktail-emails.git"
-        - name: check for changes
-          run: git config --global -e
+        - name: Git checkout
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: '0'
+        - name: git
+          run: |
+            git --version
+            git config user.name "GitHub Actions Bot"
+            git config user.email "<>"
         - name: check for changes
           run: git status
         - name: stage changed files
