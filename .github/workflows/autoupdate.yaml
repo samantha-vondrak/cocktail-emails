@@ -16,7 +16,7 @@ jobs:
         - uses: actions/checkout@v2
         - name: pip install pygithub
           run: pip install pygithub
-        - name: run ./scripts/resolve_changerc_conflict.py
+        - name: run ./.github/scripts/resolve_changerc_conflict.py
           run: python resolve_changerc_conflict.py
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
