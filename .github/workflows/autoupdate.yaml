@@ -15,7 +15,7 @@ jobs:
     # https://kjaymiller.com/how-i-autoupdate-my-github-readme-using-github-actions-in-5-easy-steps
         - name: pip install pygithub
           run: pip install pygithub
-        - name: run ./scripts/resolve_changerc_conflic.py
+        - name: run ./scripts/resolve_changerc_conflict.py
           run: python resolve_changerc_conflict.py
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
