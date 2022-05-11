@@ -9,15 +9,15 @@ on:
 
 permissions: write-all
 
+env:
+  AUTHOR: run export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
+  SUBJECT: run export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
+
 jobs:
   autoupdate:
     name: autoupdate
     runs-on: ubuntu-18.04
     steps:
-        - name: export author
-          run: export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
-        - name: export subject
-          run: export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
