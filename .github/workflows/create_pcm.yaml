@@ -1,0 +1,27 @@
+#https://github.com/marketplace/actions/auto-update
+
+name: autoupdate
+on:
+  # This will trigger on all pushes to master.
+   push:
+     branches:
+       - master
+
+permissions: write-all
+
+jobs:
+  autoupdate:
+    name: autoupdate
+    runs-on: ubuntu-18.04
+    steps:
+    # https://kjaymiller.com/how-i-autoupdate-my-github-readme-using-github-actions-in-5-easy-steps
+        - uses: actions/checkout@v2
+        - name: run ./.github/scripts/create_changerc.py
+          run: python ./.github/scripts/create_changerc.py
+          env:
+            AUTHOR: `git log -1 --oneline --pretty=tformat:"%an"`
+            SUBJECT: `git log -1 --oneline --pretty=tformat:"%s"`
+        - name: run ./.github/scripts/create_copy_changerc.py
+          run: python ./.github/scripts/create_copy_changerc.py
+        - name: delete changerc
+          run: rm .changerc
