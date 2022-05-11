@@ -9,6 +9,10 @@ on:
 
 permissions: write-all
 
+env:
+  AUTHOR: `git log -1 --oneline --pretty=tformat:"%an"`
+  SUBJECT: `git log -1 --oneline --pretty=tformat:"%s"`
+
 jobs:
   autoupdate:
     name: autoupdate
@@ -17,9 +21,6 @@ jobs:
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
-          env:
-            AUTHOR: export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
-            SUBJECT: export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
         - name: run ./.github/scripts/create_copy_changerc.py
           run: python ./.github/scripts/create_copy_changerc.py
         - name: delete changerc
