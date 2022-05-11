@@ -10,8 +10,8 @@ on:
 permissions: write-all
 
 env:
-  AUTHOR: `git log -1 --oneline --pretty=tformat:"%an"`
-  SUBJECT: `git log -1 --oneline --pretty=tformat:"%s"`
+  AUTHOR: git log -1 --oneline --pretty=tformat:"%an"
+  SUBJECT: git log -1 --oneline --pretty=tformat:"%s"
 
 jobs:
   autoupdate:
