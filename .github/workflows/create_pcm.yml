@@ -31,9 +31,6 @@ jobs:
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
-          env:
-            AUTHOR: $AUTHOR
-            SUBJECT: $SUBJECT
         - name: run ./.github/scripts/create_copy_changerc.py
           run: python ./.github/scripts/create_copy_changerc.py
         - name: delete changerc
