@@ -19,8 +19,8 @@ jobs:
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
           env:
-            AUTHOR: `git log -1 --oneline --pretty=tformat:"%an"`
-            SUBJECT: `git log -1 --oneline --pretty=tformat:"%s"`
+            AUTHOR: git log -1 --oneline --pretty=tformat:"%an"
+            SUBJECT: git log -1 --oneline --pretty=tformat:"%s"
         - name: run ./.github/scripts/create_copy_changerc.py
           run: python ./.github/scripts/create_copy_changerc.py
         - name: delete changerc
