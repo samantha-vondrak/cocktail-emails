@@ -20,12 +20,8 @@ jobs:
             fetch-depth: '0'
         - name: git
           run: |
-            git --version
             git config user.name "GitHub Actions Bot"
             git config user.email "<>"
-            git status
-            git tag
-            git describe
         - name: Set env author
           run: echo "AUTHOR=$(git log -1 --oneline --pretty=tformat:"%an")"
         - name: Set env subject
