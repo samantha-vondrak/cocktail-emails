@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
         - name: export author
-          run: run export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
+          run: export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
         - name: export subject
-          run: run export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
+          run: export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
