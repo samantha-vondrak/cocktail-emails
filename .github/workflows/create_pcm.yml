@@ -18,6 +18,8 @@ jobs:
     name: autoupdate
     runs-on: ubuntu-18.04
     steps:
+        - name: step 1
+          run: echo "The author is:${{env.AUTHOR}}" 
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
