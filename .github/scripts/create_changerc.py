@@ -9,6 +9,9 @@ authors_and_ids = {
 author = os.getenv("AUTHOR")
 subject = os.getenv("SUBJECT")
 
+print(author)
+print(subject)
+
 for key, value in authors_and_ids.items():
     if author in key:
         id = value
