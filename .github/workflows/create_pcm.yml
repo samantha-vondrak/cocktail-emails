@@ -27,7 +27,7 @@ jobs:
         - name: Set env subject
           run: echo "SUBJECT=$(git log -1 --oneline --pretty=tformat:"%s")"
         - name: Test
-          run: echo $AUTHOR
+          run: echo ${{ env.AUTHOR }}
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
