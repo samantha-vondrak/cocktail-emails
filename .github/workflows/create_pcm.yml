@@ -23,9 +23,9 @@ jobs:
             git config user.name "GitHub Actions Bot"
             git config user.email "<>"
         - name: Set env author
-          run: echo "AUTHOR=$(git log -1 --oneline --pretty=tformat:"%an")"
+          run: echo "AUTHOR=$(git log -1 --oneline --pretty=tformat:"%an")" >> $GITHUB_ENV
         - name: Set env subject
-          run: echo "SUBJECT=$(git log -1 --oneline --pretty=tformat:"%s")"
+          run: echo "SUBJECT=$(git log -1 --oneline --pretty=tformat:"%s")" >> $GITHUB_ENV
         - name: Test
           run: echo $SUBJECT
         - uses: actions/checkout@v2
