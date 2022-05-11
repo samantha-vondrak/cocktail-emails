@@ -2,7 +2,7 @@ import os
 import json
 
 authors_and_ids = {
-    "Vondrak, Samantha": "V301535",
+    "samantha-vondrak": "V301535",
     "Hasley, Lou": "H331331"
 }
 
@@ -20,6 +20,8 @@ changerc = {
     "title": subject,
     "owner": id
 }
+
+print(changerc)
 
 with open(".changerc", "w") as f:
     f.write(json.dumps(changerc))
