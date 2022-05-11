@@ -15,17 +15,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
         - uses: actions/checkout@v2
-        - name: export author env
-          run: export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
-        - name: export subject env
-          run: export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
-        - name: echo env
-          run: echo "$AUTHOR"
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
           env:
-            AUTHOR: "$AUTHOR"
-            SUBJECT: "$SUBJECT"
+            AUTHOR: export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
+            SUBJECT: export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
         - name: run ./.github/scripts/create_copy_changerc.py
           run: python ./.github/scripts/create_copy_changerc.py
         - name: delete changerc
