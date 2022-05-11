@@ -9,20 +9,21 @@ on:
 
 permissions: write-all
 
-env:
-  AUTHOR: git log -1 --oneline --pretty=tformat:"%an"
-  SUBJECT: git log -1 --oneline --pretty=tformat:"%s"
-
 jobs:
   autoupdate:
     name: autoupdate
     runs-on: ubuntu-18.04
     steps:
-        - name: step 1
-          run: echo "The author is:${{env.AUTHOR}}" 
+        - name: export author
+          run: run export AUTHOR=`git log -1 --oneline --pretty=tformat:"%an"`
+        - name: export subject
+          run: run export SUBJECT=`git log -1 --oneline --pretty=tformat:"%s"`
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
+          env:
+            AUTHOR: "$AUTHOR"
+            SUBJECT: "$SUBJECT"
         - name: run ./.github/scripts/create_copy_changerc.py
           run: python ./.github/scripts/create_copy_changerc.py
         - name: delete changerc
