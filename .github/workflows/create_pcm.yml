@@ -29,7 +29,25 @@ jobs:
         - uses: actions/checkout@v2
         - name: run ./.github/scripts/create_changerc.py
           run: python ./.github/scripts/create_changerc.py
+        - name: git add .changerc
+          run: |
+            git checkout master
+            git pull
+            git add .changerc
+            git commit -m "add changerc"
+            git push origin HEAD:master -f
         - name: run ./.github/scripts/create_copy_changerc.py
           run: python ./.github/scripts/create_copy_changerc.py
-        - name: delete changerc
-          run: rm .changerc
+        - name: git add .changerccopy
+          run: |
+            git checkout master
+            git pull
+            git add .changerc_copy
+            git commit -m "add changerc copy"
+            git push origin HEAD:master -f
+        - name: git remove changerc
+          run: |
+            git rm .changerc
+            git commit -m "remove changerc copy"
+            git push origin HEAD:master -f
+
