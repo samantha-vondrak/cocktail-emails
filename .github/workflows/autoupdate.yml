@@ -1,6 +1,6 @@
 #https://github.com/marketplace/actions/auto-update
 name: autoupdate
-on:
+action:
   # This will trigger on all pushes to master.
   pull_request:
     - opened
